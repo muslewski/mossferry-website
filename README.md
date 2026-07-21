@@ -49,3 +49,11 @@ Vercel · **mossferry.muslewski.com**
 ## License
 
 MIT-family marketing site. Brand art © Mateusz Muslewski.
+
+## Community
+
+Product support lives on **[mossferry](https://github.com/muslewski/mossferry)**:
+
+- [Discussions](https://github.com/muslewski/mossferry/discussions) — questions & ideas
+- [Issues](https://github.com/muslewski/mossferry/issues) — bugs & features
+- Website-only fixes — open an issue here
