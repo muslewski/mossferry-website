@@ -1,0 +1,15 @@
+{
+  "name": "mossferry-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Marketing site for mossferry — green ferry for remote tmux. Vite one-pager.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7"
+  }
+}

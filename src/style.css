@@ -1,0 +1,202 @@
+:root{
+  --void:#02060c;--abyss:#040c16;--trench:#071420;
+  --ink:#c8e6d4;--ink-soft:#6a9a82;--ink-faint:#3d5c4e;
+  --bio:#3dff9a;--bio-soft:#1fd977;--bio-dim:#0a8a4a;
+  --bio-glow:rgba(61,255,154,.14);--bio-core:rgba(61,255,154,.55);
+  --border:rgba(61,255,154,.12);--card:rgba(7,20,32,.92);
+  --display:"Instrument Serif",Georgia,serif;
+  --font:"Sora",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+  --max:1120px; /* was 980 — room for bigger video */
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--void);color:var(--ink)}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .trail,.spore{animation:none!important}
+}
+body{font-family:var(--font);font-size:16px;line-height:1.6;min-height:100vh;position:relative;overflow-x:hidden;background:var(--void)}
+.abyss{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:strict;background:
+  radial-gradient(ellipse 55% 45% at 50% 28%,rgba(61,255,154,.09),transparent 55%),
+  radial-gradient(ellipse 80% 60% at 50% 100%,rgba(7,20,32,.9),var(--void))}
+.bio-trails{position:absolute;inset:0;overflow:hidden;contain:paint}
+.trail{position:absolute;width:1px;background:linear-gradient(180deg,transparent,var(--bio),transparent);opacity:.22;animation:drift 16s linear infinite;will-change:transform}
+.t1{left:12%;height:40%;top:10%}.t2{left:40%;height:50%;top:18%;opacity:.14}.t3{left:72%;height:35%;top:8%}
+.spore{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--bio);box-shadow:0 0 12px var(--bio-core);opacity:.45;animation:float 10s ease-in-out infinite;will-change:transform}
+.s1{left:22%;top:30%}.s2{left:55%;top:58%}.s3{left:80%;top:24%}
+/* drift stays inside fixed abyss — never expands document height */
+@keyframes drift{from{transform:translate3d(0,-8%,0)}to{transform:translate3d(0,18%,0)}}
+@keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-10px,0)}}
+/* only real content stacks above abyss; don't force every body child relative (scroll quirks) */
+main,.nav,header,footer,.foot,.sec,.hero{position:relative;z-index:1}
+.skip{position:absolute;left:-999px}.skip:focus{left:0;top:0;z-index:99;background:var(--bio);color:#02060c;padding:.5rem 1rem}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.35rem}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.35rem;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.nav-brand{display:flex;align-items:center;gap:.5rem;color:var(--ink);text-decoration:none;font-weight:600}
+.bio-pip{width:8px;height:8px;border-radius:50%;background:var(--bio);box-shadow:0 0 14px var(--bio-core)}
+.nav-links{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.88rem}
+.nav-links a:hover{color:var(--bio)}
+.nav-cta{color:var(--void)!important;background:var(--bio);padding:.4rem .85rem;border-radius:4px;font-weight:600}
+.hero{padding:clamp(2.25rem,5vw,3.5rem) 0 2rem;text-align:center}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bio-soft);margin-bottom:.75rem}
+h1{font-family:var(--display);font-size:clamp(2.3rem,5vw,3.4rem);line-height:1.08;font-weight:400;margin-bottom:.85rem}
+.lede{color:var(--ink-soft);max-width:42ch;margin:0 auto 1.35rem}
+.actions{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center}
+.btn{display:inline-flex;align-items:center;padding:.55rem 1.1rem;font:inherit;font-weight:600;font-size:.9rem;text-decoration:none;border-radius:4px;border:1px solid transparent;cursor:pointer}
+.btn-bio{background:var(--bio);color:var(--void);box-shadow:0 0 28px var(--bio-glow)}
+.btn-ghost{border-color:var(--border);color:var(--ink);background:transparent}
+.btn:focus-visible,button:focus-visible{outline:2px solid var(--bio);outline-offset:3px}
+.sec{padding:clamp(2.5rem,6vw,4rem) 0}
+.sec-panel{background:linear-gradient(180deg,rgba(7,20,32,.55),transparent)}
+.sec-id{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bio-dim);margin-bottom:.35rem}
+h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:1rem}
+h3{font-family:var(--display);font-weight:400}
+.cmds{display:flex;flex-direction:column;gap:.55rem}
+.cmd{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 1.05rem;background:var(--card);border:1px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:.84rem}
+.cmd button{border:1px solid var(--border);background:transparent;color:var(--bio);font:inherit;font-size:.72rem;padding:.3rem .55rem;border-radius:3px;cursor:pointer}
+.cta{text-align:center}.cta p{color:var(--ink-soft);margin:0 0 1rem}
+.foot{padding:2rem 0;border-top:1px solid var(--border);font-size:.78rem;color:var(--ink-faint);text-align:center}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+
+/* spore */
+.art-frame{border-radius:50%;overflow:hidden;border:1px solid var(--border);max-width:min(78vw,300px);margin:0 auto;aspect-ratio:1;box-shadow:0 0 80px var(--bio-glow)}
+.art-frame img,.art-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.art-caption,.tag{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);text-align:center;margin-top:.55rem}
+
+/* BIGGER videos without breaking path layout */
+.vid-frame{
+  border-radius:10px;overflow:hidden;border:1px solid var(--border);
+  box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 48px var(--bio-glow);background:#02060c;
+}
+.vid-frame video{display:block;width:100%;height:auto;min-height:clamp(220px,32vw,340px);object-fit:cover;object-position:center 30%}
+.vid-frame.hero-vid video{min-height:clamp(280px,42vw,460px)}
+.vid-frame.dock-vid{max-width:min(100%,820px);margin:0 auto}
+.vid-frame.dock-vid video{min-height:clamp(260px,38vw,420px)}
+.vid-frame.square{max-width:min(92vw,420px);margin:0 auto;aspect-ratio:1}
+.vid-frame.square video{width:100%;height:100%;min-height:0;object-fit:cover}
+
+/* path stations — LEFT rail only (never center spine through text) */
+.path{
+  position:relative;
+  padding:0 0 1rem 0;
+  /* gutter for rail + dots */
+  --rail-x: 0.85rem;
+  --rail-gutter: 2.4rem;
+}
+/* vertical line lives only in the left gutter — never over copy */
+.path::before{
+  content:"";
+  position:absolute;
+  left:var(--rail-x);
+  top:0.5rem;
+  bottom:1.5rem;
+  width:2px;
+  background:linear-gradient(180deg,var(--bio),rgba(61,255,154,.12));
+  opacity:.55;
+  z-index:0;
+  pointer-events:none;
+  border-radius:2px;
+}
+.station{
+  position:relative;
+  display:grid;
+  gap:1.35rem;
+  /* keep all content clear of the rail */
+  padding:0 0 3rem var(--rail-gutter);
+  z-index:1;
+}
+@media(min-width:780px){
+  .station{
+    grid-template-columns:1.15fr 1fr;
+    gap:2.25rem;
+    padding:0 0 3.5rem var(--rail-gutter);
+    align-items:start; /* top-align so rail meets station tops cleanly */
+  }
+  /* no zigzag that puts text under a center line */
+  .station:nth-child(odd) .station-art{order:0}
+  .station:nth-child(odd) .station-copy{order:0;text-align:left}
+}
+.station-art,.station-copy{position:relative;z-index:1}
+/* copy sits on solid-ish card so no glow line bleeds through type */
+.station-copy{
+  padding:.15rem 0 .15rem .1rem;
+}
+/* Dots on the LEFT rail at each station top — never mid-video / mid-copy */
+.station-dot{
+  position:absolute;
+  left:calc(var(--rail-x) - 0.42rem);
+  top:1.15rem;
+  width:1rem;
+  height:1rem;
+  border-radius:50%;
+  background:var(--bio);
+  box-shadow:0 0 14px var(--bio-core);
+  border:2px solid var(--void);
+  z-index:2;
+  pointer-events:none;
+  margin:0;
+  transform:none; /* no center translate tricks */
+}
+.station-copy h3{font-family:var(--display);font-weight:400;font-size:clamp(1.35rem,2.5vw,1.7rem);color:var(--bio-soft);margin:0 0 .5rem}
+.station-copy p,.station-copy li{color:var(--ink-soft)}
+.station-copy ul{padding-left:1.1rem;margin-top:.55rem}
+.station-copy li{margin:.3rem 0}
+
+/* added sections */
+.cards{display:grid;gap:1rem;margin-top:1.15rem}
+@media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{padding:1.15rem;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.card h3{margin:0 0 .4rem;font-size:1.15rem;color:var(--bio-soft)}
+.card p{margin:0;color:var(--ink-soft);font-size:.92rem}
+.two{display:grid;gap:1.25rem}
+@media(min-width:720px){.two{grid-template-columns:1.15fr 1fr}}
+.two p,.two li{color:var(--ink-soft)}
+.two ul{padding-left:1.15rem}
+.pillars{display:grid;gap:1rem}
+@media(min-width:720px){.pillars{grid-template-columns:1fr 1fr}}
+.pillar{padding:1rem 1.1rem;border-left:2px solid var(--bio-dim);background:var(--card)}
+.pillar span{font-family:var(--mono);font-size:.7rem;color:var(--bio)}
+.pillar h3{margin:.25rem 0;font-size:1.1rem;color:var(--bio-soft)}
+.pillar p{margin:0;color:var(--ink-soft);font-size:.92rem}
+.reel{display:grid;gap:2rem}
+.reel-item h2{font-size:clamp(1.35rem,2.5vw,1.75rem)}
+
+/* scroll-hygiene: animations must not inflate page height or cause phantom scroll */
+html{
+  overflow-x:clip;
+}
+body{
+  overflow-x:clip;
+  /* avoid 100vh + fixed layers stacking extra scroll in iframes */
+  min-height:100%;
+  min-height:100dvh;
+}
+/* reveal uses transform only for paint — keep out of flow side-effects */
+.reveal{
+  /* smaller travel = less chance of overflow paint extending scrollport */
+  transform:translate3d(0,10px,0);
+  backface-visibility:hidden;
+}
+.reveal.visible{
+  transform:none;
+}
+/* fixed decorative layers never contribute to scroll size */
+.abyss,
+.atmos,
+.bolt-grid,
+.weld-glow,
+.plate-frame,
+.stage-proscenium,
+.rb-crosshair,
+#crosshair-root{
+  max-height:100dvh;
+}
+/* video min-heights were fighting natural aspect and bloating pages */
+.vid-frame video{
+  min-height:0 !important;
+}
