@@ -45,7 +45,7 @@
           <p class="lede">Winner path DNA with live reels: ferryman, prow, lamp — plus the dock sphere. Bigger plates, same trench.</p>
           <div class="actions">
             <a class="btn btn-bio" href="#path">Descend →</a>
-            <a class="btn btn-ghost" href="#quickstart">Quickstart</a>
+            <button type="button" class="copy-block" data-cmd="npm install -g mossferry" onclick="copyCmd(this)" tabindex="0" aria-label="Copy: npm install -g mossferry"><span class="copy-icon" aria-hidden="true">⎘</span><span class="c-prompt">$</span> <span class="c-cmd">npm install -g mossferry</span></button>
           </div>
         </div>
       </div>
@@ -155,11 +155,96 @@
   <div class="wrap">
     <p class="sec-id reveal">04 · quickstart</p>
     <h2 class="reveal">Install both shores. Cast off.</h2>
-    <div class="cmds reveal">
-      <div class="cmd"><code id="c1">./install.sh</code><button type="button" data-copy="#c1">copy</button></div>
-      <div class="cmd"><code id="c2">ferry &lt;host&gt;</code><button type="button" data-copy="#c2">copy</button></div>
-      <div class="cmd"><code id="c3">ferry doctor</code><button type="button" data-copy="#c3">copy</button></div>
-      <div class="cmd"><code id="c4">ferry update [host]</code><button type="button" data-copy="#c4">copy</button></div>
+    <p class="reveal" style="color:var(--ink-soft);max-width:48ch;margin:0 0 .5rem">npm on laptop and workstation. Click any line to copy.</p>
+    <div class="install-term reveal">
+      <div class="install-term-bar">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <span class="term-title">setup</span>
+      </div>
+      <div class="install-tabs" role="tablist" aria-label="Install method">
+        <button class="install-tab" id="ferry-tab-npm" role="tab" aria-selected="true" aria-controls="ferry-panel-npm" tabindex="0" type="button">npm</button><button class="install-tab" id="ferry-tab-npx" role="tab" aria-selected="false" aria-controls="ferry-panel-npx" tabindex="-1" type="button">npx</button><button class="install-tab" id="ferry-tab-git" role="tab" aria-selected="false" aria-controls="ferry-panel-git" tabindex="-1" type="button">git</button>
+      </div>
+      <div class="install-term-body">
+        <div class="install-panel" id="ferry-panel-npm" role="tabpanel" aria-labelledby="ferry-tab-npm">
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="npm install -g mossferry" role="button" tabindex="0" aria-label="Copy command: npm install -g mossferry">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">npm install -g mossferry</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#1</span> Local + remote — bins: <code>ferry</code> · <code>mossferry</code> · <code>repo-session</code></div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="ferry doctor" role="button" tabindex="0" aria-label="Copy command: ferry doctor">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">ferry doctor</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#2</span> Health check this shore</div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="ferry myhost" role="button" tabindex="0" aria-label="Copy command: ferry myhost">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">ferry myhost</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#3</span> Open the session picker on &lt;host&gt;</div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="ferry doctor myhost" role="button" tabindex="0" aria-label="Copy command: ferry doctor myhost">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">ferry doctor myhost</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#4</span> Doctor the far shore over ssh</div>
+          </div>
+        </div>
+        <div class="install-panel" id="ferry-panel-npx" role="tabpanel" aria-labelledby="ferry-tab-npx" hidden>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="npx mossferry doctor" role="button" tabindex="0" aria-label="Copy command: npx mossferry doctor">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">npx mossferry doctor</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#1</span> Run without a global install</div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="npx mossferry myhost" role="button" tabindex="0" aria-label="Copy command: npx mossferry myhost">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">npx mossferry myhost</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#2</span> Picker via npx</div>
+          </div>
+        </div>
+        <div class="install-panel" id="ferry-panel-git" role="tabpanel" aria-labelledby="ferry-tab-git" hidden>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="git clone https://github.com/muslewski/mossferry.git" role="button" tabindex="0" aria-label="Copy command: git clone https://github.com/muslewski/mossferry.git">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">git clone https://github.com/muslewski/mossferry.git</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#1</span> Clone on each machine</div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="cd mossferry &amp;&amp; ./install.sh" role="button" tabindex="0" aria-label="Copy command: cd mossferry &amp;&amp; ./install.sh">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">cd mossferry &amp;&amp; ./install.sh</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#2</span> Symlink into ~/.local/bin + seed config</div>
+          </div>
+          <div class="install-step">
+            <div class="cmd-row" onclick="copyCmd(this)" data-cmd="ferry doctor" role="button" tabindex="0" aria-label="Copy command: ferry doctor">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">ferry doctor</span>
+              <span class="copy-icon" aria-hidden="true">⎘</span>
+            </div>
+            <div class="install-hint"><span class="c-cmt">#3</span> Confirm PATH + config</div>
+          </div>
+        </div>
+        <div class="install-foot"><span class="ok">✓</span> Remote host needs the same package (or <code>repo-session</code>) on PATH.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -168,7 +253,10 @@
   <div class="wrap reveal">
     <h2>Board the green ferry</h2>
     <p>Beacon. Path. Motion. Open source.</p>
-    <a class="btn btn-bio" href="https://github.com/muslewski/mossferry" target="_blank" rel="noopener">github.com/muslewski/mossferry →</a>
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;align-items:center">
+      <button type="button" class="copy-block" data-cmd="npm install -g mossferry" onclick="copyCmd(this)" tabindex="0" aria-label="Copy: npm install -g mossferry"><span class="copy-icon" aria-hidden="true">⎘</span><span class="c-prompt">$</span> <span class="c-cmd">npm install -g mossferry</span></button>
+      <a class="btn btn-bio" href="https://github.com/muslewski/mossferry" target="_blank" rel="noopener">github.com/muslewski/mossferry →</a>
+    </div>
   </div>
 </section>
   </main>

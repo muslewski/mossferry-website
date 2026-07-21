@@ -200,3 +200,21 @@ body{
 .vid-frame video{
   min-height:0 !important;
 }
+
+:root {
+  --install-bg: #04100a;
+  --install-bar: #06140c;
+  --install-border: rgba(61, 255, 154, 0.22);
+  --install-text: #c8e6d4;
+  --install-muted: #6a9a82;
+  --install-accent: #3dff9a;
+  --install-cmd: #e0ffe8;
+  --install-prompt: #3dff9a;
+  --install-hover: rgba(61, 255, 154, 0.1);
+  --install-radius: 4px;
+}
+.hero .copy-block {
+  border: 1px solid var(--border, rgba(61,255,154,.3));
+  background: var(--card, #06140c);
+  color: var(--ink);
+}
