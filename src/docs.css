@@ -12,7 +12,7 @@
   --docs-accent: #3dff9a;
   --docs-accent-2: #1fd977;
   --docs-accent-dim: #0a8a4a;
-  --docs-accent-glow: rgba(61, 255, 154, 0.28);
+  --docs-accent-glow: transparent;
   --docs-accent-soft: rgba(61, 255, 154, 0.1);
   --docs-display: "Instrument Serif", Georgia, serif;
   --docs-body-font: "Sora", system-ui, sans-serif;
@@ -28,18 +28,18 @@
   --docs-prose-size: 15.5px;
   --docs-card-bg: #06140c;
   --docs-card-border: 1px solid rgba(61, 255, 154, 0.22);
-  --docs-card-shadow: 0 0 28px rgba(61, 255, 154, 0.08);
+  --docs-card-shadow: none;
   --docs-term-bg: #04100a;
   --docs-term-fg: #e0ffe8;
   --docs-term-border: 1px solid rgba(61, 255, 154, 0.28);
-  --docs-term-shadow: 0 0 22px rgba(61, 255, 154, 0.1);
+  --docs-term-shadow: none;
   --docs-code-bg: rgba(61, 255, 154, 0.1);
   --docs-code-fg: #3dff9a;
   --docs-code-border: 1px solid rgba(61, 255, 154, 0.22);
   --docs-gh-fg: #02060c;
   --docs-gh-bg: #3dff9a;
   --docs-gh-border: 1px solid #3dff9a;
-  --docs-gh-shadow: 0 0 18px rgba(61, 255, 154, 0.25);
+  --docs-gh-shadow: none;
 }
 /* ════ SAGE docs — brand-matched product documentation ════ */
 
@@ -69,8 +69,6 @@ body.docs-body {
   top: 0;
   z-index: 100;
   background: color-mix(in srgb, var(--docs-bg) 94%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--docs-border);
 }
 .docs-top-inner {
@@ -99,7 +97,7 @@ body.docs-body {
   font-size: 24px;
   color: var(--docs-accent);
   letter-spacing: 0.12em;
-  text-shadow: 0 0 10px var(--docs-accent-glow);
+  text-shadow: none;
 }
 .docs-brand-tag {
   font-family: var(--docs-mono), ui-monospace, monospace;
@@ -263,7 +261,7 @@ body.docs-body {
   letter-spacing: 0.04em;
   line-height: 1.15;
   margin: 0 0 16px;
-  text-shadow: 0 0 28px var(--docs-accent-glow);
+  text-shadow: none;
 }
 .docs-prose h2 {
   font-family: var(--docs-body-font), system-ui, sans-serif;
@@ -304,7 +302,7 @@ body.docs-body {
 }
 .docs-prose a:hover {
   border-bottom-color: var(--docs-accent);
-  text-shadow: 0 0 12px var(--docs-accent-soft);
+  text-shadow: none;
 }
 .docs-prose ul,
 .docs-prose ol {
@@ -388,7 +386,7 @@ body.docs-body {
   padding: 16px 18px;
   margin: 1.1rem 0 1.4rem;
   overflow-x: auto;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(200, 151, 47, 0.05);
+  box-shadow: none;
 }
 .docs-prose pre code,
 .docs-prose .docs-pre code {
@@ -553,7 +551,6 @@ body.docs-body {
 .docs-top {
   background: color-mix(in srgb, var(--docs-top-bg, var(--docs-panel)) 96%, transparent) !important;
   border-bottom: var(--docs-chrome-border, 1px solid var(--docs-border)) !important;
-  backdrop-filter: blur(12px);
 }
 .docs-brand-word {
   font-family: var(--docs-display), system-ui, sans-serif !important;
@@ -561,7 +558,7 @@ body.docs-body {
   font-size: var(--docs-brand-size, 1.35rem) !important;
   letter-spacing: var(--docs-brand-track, 0.08em) !important;
   font-weight: var(--docs-brand-weight, 700) !important;
-  text-shadow: var(--docs-brand-shadow, none) !important;
+  text-shadow: none !important;
 }
 .docs-brand-tag {
   font-family: var(--docs-mono), ui-monospace, monospace !important;
@@ -642,7 +639,7 @@ body.docs-body {
 .docs-prose h1 {
   font-family: var(--docs-display), system-ui, sans-serif !important;
   color: var(--docs-h1, var(--docs-fg)) !important;
-  text-shadow: var(--docs-h1-shadow, none) !important;
+  text-shadow: none !important;
   letter-spacing: var(--docs-h1-track, 0.02em) !important;
   font-weight: var(--docs-h1-weight, 700) !important;
 }
@@ -741,3 +738,97 @@ body.docs-body {
 .docs-doctrine { color: var(--docs-muted-2) !important; }
 .docs-doctrine .gold-glow,
 .docs-doctrine em { color: var(--docs-accent) !important; }
+
+
+/* ── Mossferry craft: quiet trench, single green pip ── */
+body.docs-body { background: #02060c !important; }
+.docs-top {
+  background: #02060c !important;
+  border-bottom: 1px solid rgba(61,255,154,0.16) !important;
+  box-shadow: none !important;
+}
+.docs-brand-word {
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  color: #c8e6d4 !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+.docs-brand-tag {
+  color: #3dff9a !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.docs-brand-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3dff9a;
+  box-shadow: 0 0 10px rgba(61,255,154,0.45);
+}
+.docs-aside {
+  background: #04100a !important;
+  border-right: 1px solid rgba(61,255,154,0.14) !important;
+}
+.docs-aside-label {
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-size: 10px !important;
+  color: #1fd977 !important;
+}
+/* Stations: no heavy cards — list with living pip on active */
+.docs-nav-section {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.75rem 0 0 !important;
+  margin-top: 0.5rem !important;
+  border-top: 1px solid rgba(61,255,154,0.12) !important;
+}
+.docs-nav-link {
+  border-radius: 4px !important;
+  border-left: none !important;
+  padding: 0.45rem 0.55rem !important;
+  position: relative;
+}
+.docs-nav-link:hover {
+  background: rgba(61,255,154,0.06) !important;
+  color: #c8e6d4 !important;
+}
+.docs-nav-link.is-active {
+  background: rgba(61,255,154,0.08) !important;
+  color: #3dff9a !important;
+  border-left: none !important;
+  font-weight: 600 !important;
+}
+.docs-nav-link.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3dff9a;
+}
+.docs-nav-link.is-active { padding-left: 1rem !important; }
+.docs-prose h1 {
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  color: #c8e6d4 !important;
+}
+.docs-prose h2 { font-weight: 400 !important; }
+.docs-prose pre, .docs-pre {
+  box-shadow: none !important;
+  border: 1px solid rgba(61,255,154,0.22) !important;
+}
+.docs-gh {
+  box-shadow: none !important;
+  /* keep solid bio fill — one intentional accent */
+}

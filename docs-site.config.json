@@ -12,5 +12,7 @@
   "favicon": "/favicon.ico",
   "ogImage": "/mossferry4.webp",
   "footDoctrine": "One green spore. Stations that move.",
-  "ghEditPath": "docs/"
+  "ghEditPath": "docs/",
+  "brandTag": "ferry",
+  "asideLabel": "Stations"
 }
